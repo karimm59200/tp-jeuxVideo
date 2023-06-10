@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Detail du jeux et ici son id : </title>
+    <title>Detail du jeux</title>
 </head>
 <body>
 <h1>Detail du jeux et ici son id : </h1>

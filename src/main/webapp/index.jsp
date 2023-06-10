@@ -8,13 +8,20 @@
 <h1><%= "Bienvenue sur votre librairie de gestion de jeux vidéos" %>
 </h1>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
+<%--<a href="hello-servlet">Hello Servlet</a>--%>
 <br/>
-<a href="hello-servlet">Liste de tous mes jeux</a>
+
+
+
+
+<a href="ListeJeuxServlet">1--Liste de tous mes jeux</a>
 <br/>
-<a href="hello-servlet">Détails</a>
+<a href="DetailsServlet">2--Details du jeux </a>
 <br/>
-<a href="JeuxVideoServlet">Formulaire d'Ajout jeux </a>
+<a href="JeuxVideoServlet">3--Formulaire d'Ajout jeux </a>
+<br/>
+<a href="ErreurServlet">4--Erreur </a>
+
 
 </body>
 </html>

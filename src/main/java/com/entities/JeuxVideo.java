@@ -29,4 +29,11 @@ public class JeuxVideo {
 
     public JeuxVideo(String nom, String desc, LocalDate dateSortie, int note, String imageUrl) {
     }
+
+    public JeuxVideo() {
+    }
+
+    public JeuxVideo(String nom, String desc, LocalDate dateSortie, int note) {
+    }
+
 }
