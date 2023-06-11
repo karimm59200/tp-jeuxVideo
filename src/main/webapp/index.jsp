@@ -14,11 +14,11 @@
 
 
 
-<a href="ListeJeuxServlet">1--Liste de tous mes jeux</a>
+<a href="DetailsServlet">1--Liste de tous mes jeux</a>
 <br/>
 <a href="DetailsServlet">2--Details du jeux </a>
 <br/>
-<a href="JeuxVideoServlet">3--Formulaire d'Ajout jeux </a>
+<a href="jeuxvideoservlet">3--Formulaire d'Ajout jeux </a>
 <br/>
 <a href="ErreurServlet">4--Erreur </a>
 

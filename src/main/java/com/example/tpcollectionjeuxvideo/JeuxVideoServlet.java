@@ -12,7 +12,7 @@ import java.time.LocalDate;
 
 import static java.lang.System.out;
 
-@WebServlet(name = "JeuxVideoServlet", value = "/JeuxVideoServlet")
+@WebServlet(name = "jeuxvideoservlet", value = "/jeuxvideoservlet")
 public class JeuxVideoServlet extends HttpServlet {
 
     private JeuxVideoService service;
@@ -23,6 +23,8 @@ public class JeuxVideoServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
 
         request.getRequestDispatcher("WEB-INF/formulaireAjout.jsp").forward(request, response);
     }
@@ -38,10 +40,13 @@ public class JeuxVideoServlet extends HttpServlet {
         if (request.getParameter("nom") != null) {
             String nom = request.getParameter("nom");
             String desc = request.getParameter("description");
-            int note = Integer.parseInt(request.getParameter("note"));
+            int note = Integer.parseInt(request.getParameter("notePopularite"));
             LocalDate dateSortie = LocalDate.parse(request.getParameter("dateSortie"));
             String imageUrl = request.getParameter("imageUrl");
             JeuxVideo jeuxVideo = new JeuxVideo(nom, desc, dateSortie, note, imageUrl);
+            String urlImage = "https://picsum.photos/id/" + imageUrl + "/200/300";
+            //String urlImage = imageUrl;
+            jeuxVideo.setImageUrl(urlImage);
             if (service.create(jeuxVideo)) {
                 out.println("<h1>jeuxVideo ajouté</h1>");
             } else {

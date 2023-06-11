@@ -15,25 +15,25 @@
 <h1> Formulaire d'ajout d'un jeux </h1> <br>
 
 <div>
-    <form action="JeuxVideoServlet" method="POST" enctype="multipart/form-data">
+    <form action="jeuxvideoservlet" method="post" >
 
-        <label for="nom">Nom du jeux</label> <br>
-        <input type="text" id="nom" name="nom" required >
+        <label >Nom du jeux</label> <br>
+        <input type="text" name="nom" required >
         <br>
-        <label for="description">Description du jeux</label> <br>
-        <input type="text" id="description" name="desc" required>
+        <label>Description du jeux</label> <br>
+        <input type="text" name="description" required>
         <br>
-        <label for="note">Note de popularité</label> <br>
-        <input type="number" id="note" name="note" min=0 max=5 required>
+        <label>Note de popularité</label> <br>
+        <input type="number" name="notePopularite" min=0 max=5 required>
         <br>
-        <label for="imageUrl">Image du jeux</label> <br>
-        <input type="text" id="imageUrl" name="imageUrl">
+        <label>Image du jeux</label> <br>
+        <input type="text" name="imageUrl">
         <br>
-        <label for="date">Date de sortie</label> <br>
-        <input type="text" id="date" name="dateSortie" required>
+        <label>Date de sortie</label> <br>
+        <input type="text" name="dateSortie" required>
 
 
-        <input type="submit" value="Ajouter">
+        <button type="submit" >Valider</button>
     </form>
 </div>
 </body>
