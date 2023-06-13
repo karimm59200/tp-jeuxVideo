@@ -24,13 +24,14 @@ public class DetailsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        if(request.getParameter("id") != null){
+        if(request.getParameter("id") != null && !request.getParameter("id").equals("")){
             int id = Integer.parseInt(request.getParameter("id"));
             JeuxVideo jeuxVideo = service.findById(id);
             request.setAttribute("jeux", jeuxVideo);
             request.getRequestDispatcher("WEB-INF/details.jsp").forward(request, response);
         }
         else{
+
             request.setAttribute("jeux", service.findAll());
             response.sendRedirect("ListeJeuxServlet");
         }

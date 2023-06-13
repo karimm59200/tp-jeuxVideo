@@ -55,7 +55,7 @@ public class JeuxVideoService  extends BaseService implements Repository<JeuxVid
         public List<JeuxVideo> findAll() {
             List<JeuxVideo> jeuxVideoList = null;
             session = sessionFactory.openSession();
-            Query<JeuxVideo> jeuxVideoQuery = session.createQuery("from JeuxVideo");
+            Query<JeuxVideo> jeuxVideoQuery = session.createQuery("from JeuxVideo ");
             jeuxVideoList = jeuxVideoQuery.list();
             session.close();
             return jeuxVideoList;

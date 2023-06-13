@@ -15,22 +15,22 @@
 <h1> Formulaire d'ajout d'un jeux </h1> <br>
 
 <div>
-    <form action="jeuxvideoservlet" method="post" >
+    <form action="" method="post" >
 
         <label >Nom du jeux</label> <br>
-        <input type="text" name="nom" required >
+        <input type="text" name="nom" required value="${jeuxVideo.getNom()}">
         <br>
         <label>Description du jeux</label> <br>
-        <input type="text" name="description" required>
+        <input type="text" name="description" required value="${jeuxVideo.getDescription()}">
         <br>
         <label>Note de popularité</label> <br>
-        <input type="number" name="notePopularite" min=0 max=5 required>
+        <input type="number" name="notePopularite" min=0 max=5 required value="${jeuxVideo.getNotePopularite()}">
         <br>
         <label>Image du jeux</label> <br>
-        <input type="text" name="imageUrl">
+        <input type="text" name="imageUrl" value="${jeuxVideo.getImageUrl()}">
         <br>
         <label>Date de sortie</label> <br>
-        <input type="text" name="dateSortie" required>
+        <input type="text" name="dateSortie" required value="${jeuxVideo.getDateSortie().toString()}">
 
 
         <button type="submit" >Valider</button>
