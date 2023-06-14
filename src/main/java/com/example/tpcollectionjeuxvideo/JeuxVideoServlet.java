@@ -29,7 +29,7 @@ public class JeuxVideoServlet extends HttpServlet {
             JeuxVideo jeuxVideo = service.findById(id);
             request.setAttribute("jeuxVideo", jeuxVideo);
             request.getRequestDispatcher("WEB-INF/detailsJeux.jsp").forward(request, response);
-        }else if (request.getParameter("status") != null){
+        }else if (request.getParameter("status") != null && !request.getParameter("status").equals("delete")){
 
             if(request.getParameter("status").equals("add")){
                 request.getRequestDispatcher("WEB-INF/formulaireAjout.jsp").forward(request, response);
@@ -39,12 +39,20 @@ public class JeuxVideoServlet extends HttpServlet {
                 request.setAttribute("jeuxVideo", jeuxVideo);
                 request.getRequestDispatcher("WEB-INF/formulaireAjout.jsp").forward(request, response);
             }
-        } else{
+        } else if(request.getParameter("status") ==null ){
             List<JeuxVideo> jeuxVideo = service.findAll();
             request.setAttribute("jeuxVideo", jeuxVideo);
             jeuxVideo.forEach(out::println);
             request.getRequestDispatcher("WEB-INF/listeJeux.jsp").forward(request, response);
         }
+
+        if(request.getParameter("id") != null && request.getParameter("status") != null && request.getParameter("status").equals("delete")){
+            int id = Integer.parseInt(request.getParameter("id"));
+            JeuxVideo jeuxVideo = service.findById(id);
+            service.delete(jeuxVideo );
+            response.sendRedirect("jeuxvideo");
+        }
+
     }
 
     @Override
@@ -75,6 +83,24 @@ public class JeuxVideoServlet extends HttpServlet {
             }
         }
         else{
+            int id = Integer.parseInt(request.getParameter("id"));
+            String nom = request.getParameter("nom");
+            String desc = request.getParameter("description");
+            int note = Integer.parseInt(request.getParameter("notePopularite"));
+            LocalDate dateSortie = LocalDate.parse(request.getParameter("dateSortie"));
+            String imageUrl = request.getParameter("imageUrl");
+            String urlImage = "https://picsum.photos/id/" + imageUrl + "/300/300";
+            //String urlImage = imageUrl;
+
+            JeuxVideo jeuxVideo = new JeuxVideo(nom, desc, dateSortie, note, urlImage);
+            jeuxVideo.setId(id);
+            if (service.update(jeuxVideo)) {
+                //out.println("<h1>jeuxVideo modifié</h1>");
+                response.sendRedirect("jeuxvideo");
+            } else {
+                out.println("<h1>erreur de données lors de la modification</h1>");
+            }
+            out.println("</body></html>");
 
         }
 

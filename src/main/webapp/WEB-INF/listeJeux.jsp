@@ -25,7 +25,7 @@
         </div>
         <div>
             <a href="jeuxvideo?status=edit&id=${jeu.getId()}">Modifier jeux</a> <br>
-            <a href="">Supprimer jeux</a> <br>
+            <a href="jeuxvideo?status=delete&id=${jeu.getId()}">Supprimer jeux</a> <br>
             <a href="?id=${jeu.getId()}">Plus de détails</a> <br>
 
         </div>
